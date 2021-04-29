@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <style>
+                    * {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+.formulario {
+    width: 1000px;
+    max-width: 100%;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 20px;
+    position: relative;
+}
+.formulario__titulo {
+    text-align: center;
+    margin-top: 0;
+    color: rgba(0,0,0,0.5)
+}
+.formulario__downtitulo {
+    padding-top: 10px;
+    padding-bottom: 0px;
+    text-align: center;
+    margin-top: 0;
+    color: rgba(0,0,0,1)
+}
+.formulario__input, .formulario__label {
+    display: block;
+    width: 100%;
+    font-size: 1.4em;
+}
+input, textarea, .formulario__labelredact {
+    display: block;
+    width: 100%;
+    font-size: 1.4em;
+    font-family: sans-serif
+}
+.formulario__input {
+    padding: 20px;
+    background: rgba(0,0,0,0,7);
+    border: 0px solid rgba (0,0,0);
+    margin-bottom: 40px;
+    border-color: rgba(0,0,0,0);
+}
+input, textarea {
+    padding: 20px;
+    background: rgba(0,0,0,0.1);
+    border: 0px solid rgba (0,0,0,0);
+    margin-bottom: 20px;
+    border-color: rgba(0,0,0,0.0);
+    border-radius: 10px;
+}
+.formulario__input:focus {
+    outline: 0px solid rgba(0,0,0,0.0);
+    text-decoration-line: none;
+}
+input, textarea:focus {
+    outline: 0px solid rgba(0,0,0,0.7);
+}
+textarea {
+    resize: none;
+}
+.formulario__input:focus + .formulario__label{
+    margin-top: -135px
+}
+.input, textarea:focus + .formulario__labelredact{
+    margin-top: -370px
+}
+.formulario__label {
+    padding-left: 10px;
+    position: absolute;
+    margin-top: -85px;
+    z-index: -20;
+    color: rgba(0,0,0,0.5);
+    transition: all 0.4s;
+}
+.formulario__labelredact {
+    padding-left: 10px;
+    position: absolute;
+    margin-top: -300px;
+    z-index: -20;
+    color: rgba(0,0,0,0.5);
+    transition: all 0.4s;
+}
+.formulario__submit {
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    width: 100%;
+}
+.fijar {
+    margin-top: -135px;
+}
+.fijarredact {
+    margin-top: -350px;
+}
+
+        </style>
+    </head>
+    <body>
+        <form action="" class="formulario">
+            <h1 class="formulario__titulo">Contacto</h1>
+            <input style= "border:none" type="text" class="formulario__input">
+            <label for="" class ="formulario__label">Nombre</label>
+            <input type="text" class="formulario__input">
+            <label for="" class ="formulario__label">Asunto</label>
+            <input type="text" class="formulario__input">
+            <label for="" class ="formulario__label">Correo</label>
+            <textarea class="textarea" id="" cols="30" rows="10"></textarea>
+            <label for="" class ="formulario__labelredact">Redacte su mensaje...</label>
+            <input type="submit" class="formulario__submit">
+        </form
+        
+        <scripts>
+              var inputs = document.getElementsByClassName('formulario__input');
+for (var i = 0; i < inputs.length; i++) {
+  inputs[i].addEventListener('keyup', function(){
+      if(this.value.length>=1) {
+          this.nextElementSibling.classList.add('fijar');
+      } else {
+         this.nextElementSibling.classList.remove('fijar'); 
+      }
+  });
+}
+var inputs = document.getElementsByClassName('textarea');
+for (var i = 0; i < inputs.length; i++) {
+  inputs[i].addEventListener('keyup', function(){
+      if(this.value.length>=1) {
+          this.nextElementSibling.classList.add('fijarredact');
+      } else {
+         this.nextElementSibling.classList.remove('fijarredact'); 
+      }
+  });
+}
+        </script>
+    </body>
+</html>
